@@ -1,0 +1,136 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+}
+
+.header__logo {
+    position: relative;
+    z-index: 5;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(151, 153, 153);
+    z-index: 2;
+}
+
+.header__body {
+    position: relative;    
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+}
+
+.header__list li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+.header__list {
+    display: flex;
+    position: relative;
+    z-index: 2;
+}
+
+.header__link {
+    color:black;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.header__burger {
+    display: none;
+}
+@media(max-width: 767px) {
+    body.lock {
+        overflow: hidden;
+    }
+    .header__body {
+        height: 50px;
+    }
+    .header__burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 5;
+    }
+
+    .header__burger span {
+        content: '';
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        top: 9px;  
+        transition: all 0.3s ease-in-out;      
+    }
+    .header__burger::before, .header__burger::after {
+        content: '';
+        background-color: rgb(253, 253, 253);
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease-in-out;        
+    }
+
+    .header__burger::before {
+        top: 0;
+    }
+    .header__burger::after {
+        bottom: 0;
+    }
+    .header__burger.active::before {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+    .header__burger.active::after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+    .header__burger.active span {
+        transform: scale(0);
+    }
+
+    .header__menu {
+        width: 100%;
+        height: 100%;
+        top: -110%;
+        left: 0;
+        position: fixed;
+        background-color: beige;
+        padding-top: 70px;
+        overflow: auto;
+    }
+    .header__menu.active {
+        top: 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .header__list {
+        display: block;
+    }
+
+    .header__list li {
+        margin: 0px 0px 20px 0px;
+    }
+}
